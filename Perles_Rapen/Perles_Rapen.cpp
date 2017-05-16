@@ -96,7 +96,6 @@ void cogDefuzz()
 }
 
 
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	cogDefuzz();

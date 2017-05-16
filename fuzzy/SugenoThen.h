@@ -5,6 +5,7 @@
 
 namespace fuzzy
 {
+	using namespace core;
 	template <class T>
 	class SugenoThen : public Then<T>
 	{
@@ -12,7 +13,7 @@ namespace fuzzy
 		SugenoThen() :premiseValue(0) {};
 		virtual ~SugenoThen() {};
 
-		virtual T evaluate(core::Expression<T>*, core::Expression<T>*) const;
+		virtual T evaluate(const Expression<T>*, const Expression<T>*) const;
 		virtual T getPremiseValue();
 
 	public:
@@ -20,11 +21,10 @@ namespace fuzzy
 	};
 
 	template <class T>
-	T SugenoThen<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const
+	T SugenoThen<T>::evaluate(const Expression<T>* _left, const Expression<T>* _right) const
 	{
-		premiseValue = l->evaluate();
-
-		return premiseValue * r->evaluate();
+		premiseValue = _left->evaluate();
+		return premiseValue * _right->evaluate();
 	}
 
 	template <class T>

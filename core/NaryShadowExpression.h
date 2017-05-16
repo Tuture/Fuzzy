@@ -9,7 +9,7 @@ namespace core
 
 	public:
 		NaryShadowExpression() {};
-		NaryShadowExpression(const NaryExpression<T>* _target) : target(_target) {};
+		NaryShadowExpression(NaryExpression<T>* _target) : target(_target) {};
 		virtual ~NaryShadowExpression() {};
 
 		T evaluate(vector<const Expression<T>*>*) const;

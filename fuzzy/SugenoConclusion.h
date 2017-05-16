@@ -29,7 +29,7 @@ namespace fuzzy
 		T z = 0;
 
 		// calcul de la somme des Zi
-		for (; itexpr != operands->end() && itcoef != coeff->end(); itexpr++, itcoef++)
+		for (; itexpr != _operands->end() && itcoef != coeff->end(); itexpr++, itcoef++)
 		{
 			// evaluation de la règle courante
 			T eval = (*itexpr)->evaluate();

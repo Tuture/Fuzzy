@@ -12,7 +12,7 @@ namespace core
 
 	public:
 		NaryExpressionModel() {};
-		NaryExpressionModel(const NaryExpression<T>* _ope, vector<const Expression<T>*>* _operandes) :operatoor(_ope), operandes(_operandes) {};
+		NaryExpressionModel(NaryExpression<T>* _ope, vector<const Expression<T>*>* _operandes) :operatoor(_ope), operandes(_operandes) {};
 		virtual ~NaryExpressionModel() {};
 
 		virtual T evaluate() const;
@@ -35,7 +35,7 @@ namespace core
 	T NaryExpressionModel<T>::evaluate(std::vector<const Expression<T>*>* _operandes) const
 	{
 		if (operatoor != NULL)
-			return operatoor->evaluate(operands);
+			return operatoor->evaluate(_operandes);
 		throw new NullException("Operator is null!");
 	}
 }
