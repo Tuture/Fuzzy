@@ -5,6 +5,7 @@
 
 #include "../core/Expression.h"
 #include "../core/UnaryExpression.h"
+#include "../core/NullException.h"
 #include "../fuzzy/Operators.h"
 
 namespace fuzzy {
@@ -25,10 +26,10 @@ namespace fuzzy {
 	};
 
 	template <class T>
-	T IsGauss<T>::evaluate(const Expression<T>* xExp) const {
-		if (xExp == NULL) throw NullException("Null expression !!!");
-		T x = xExp->evaluate();
-		return exp( (-1 * pow(x-c, 2)) / (2 * pow(o, 2)) );
+	T IsGauss<T>::evaluate(const Expression<T>* _exp) const {
+		if (_exp != NULL)
+		return exp( (-1 * pow(_exp->evaluate() -c, 2)) / (2 * pow(o, 2)) );
+		throw NullException("Expression is null!");
 	};
 }
 #endif

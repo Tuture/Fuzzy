@@ -12,11 +12,11 @@ namespace fuzzy
 		SugenoDefuzz() {};
 		virtual ~SugenoDefuzz() {};
 
-		virtual T Evaluate(std::vector<const core::Expression<T>*>* operands) const;
+		virtual T evaluate(std::vector<const core::Expression<T>*>*) const;
 	};
 
 	template <class T>
-	T SugenoDefuzz<T>::Evaluate(std::vector<const core::Expression<T>*>* operands) const
+	T SugenoDefuzz<T>::evaluate(std::vector<const core::Expression<T>*>* _operands) const
 	{
 		std::vector<const core::Expression<T>*>::const_iterator it;
 
@@ -24,13 +24,13 @@ namespace fuzzy
 		T denum = 0;
 
 		// calcul somme des wi
-		for (it = operands->begin(); it != operands->end(); it++)
+		for (it = _operands->begin(); it != _operands->end(); it++)
 		{
-			num += (*it)->Evaluate();
+			num += (*it)->evaluate();
 
 			core::BinaryExpressionModel<T>*  bem = (core::BinaryExpressionModel<T>*)  (*it);
-			core::BinaryShadowExpression<T>* bse = (core::BinaryShadowExpression<T>*) bem->GetOpe();
-			SugenoThen<T>*                   sth = (SugenoThen<T>*)                   bse->GetTarget();
+			core::BinaryShadowExpression<T>* bse = (core::BinaryShadowExpression<T>*) bem->getOpe();
+			SugenoThen<T>*                   sth = (SugenoThen<T>*)                   bse->getTarget();
 
 
 			denum += sth->getPremiseValue();

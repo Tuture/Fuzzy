@@ -9,6 +9,7 @@
 namespace core
 {
 	using namespace std;
+
 	template <class T>
 	class ExpressionFactory {
 
@@ -33,10 +34,10 @@ namespace core
 	}
 
 	template <class T>
-	Expression<T>* ExpressionFactory<T>::hold(Expression<T>* e)
+	Expression<T>* ExpressionFactory<T>::hold(Expression<T>* _e)
 	{
-		ensemble.insert(e);
-		return e;
+		ensemble.insert(_e);
+		return _e;
 	}
 
 	template <class T>

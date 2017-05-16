@@ -18,9 +18,9 @@ namespace fuzzy
 		MamdaniDefuzz(const T& _min, const T& _max, const T& _step) : min(_min), max(_max), step(_step) {};
 		~MamdaniDefuzz() {};
 
-		virtual void SetMin(const T& _min) { min = _min; }
-		virtual void SetMax(const T& _max) { max = _max; }
-		virtual void SetStep(const T& _step) { step = _step; }
+		virtual void setMin(const T& _min) { min = _min; }
+		virtual void setMax(const T& _max) { max = _max; }
+		virtual void setStep(const T& _step) { step = _step; }
 
 		virtual T evaluate(const Expression<T>*, const Expression<T>*) const;
 

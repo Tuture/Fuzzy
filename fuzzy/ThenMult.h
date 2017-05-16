@@ -1,5 +1,5 @@
-#ifndef THENMULT_H
-#define THENMULT_H
+#ifndef THEN_MULT_H
+#define THEN_MULT_H
 
 #include "Operators.h"
 
@@ -11,15 +11,13 @@ namespace fuzzy
 	public:
 		ThenMult() {};
 		virtual ~ThenMult() {};
-		virtual T Evaluate(core::Expression<T>*, core::Expression<T>*) const;
+		virtual T evaluate(core::Expression<T>*, core::Expression<T>*) const;
 	};
 
 	template <class T>
-	T ThenMult<T>::Evaluate(core::Expression<T>* l, core::Expression<T>* r) const
+	T ThenMult<T>::evaluate(core::Expression<T>* _left, core::Expression<T>* _right) const
 	{
-		T lv = l->Evaluate();
-		T rv = r->Evaluate();
-		return lv*rv;
+		return _left->evaluate() * _right->evaluate();
 	}
 }
 

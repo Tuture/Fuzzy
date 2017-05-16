@@ -113,9 +113,9 @@ namespace fuzzy
 	Expression<T>* FuzzyFactory<T>::newDefuzz(Expression<T>* l, Expression<T>* r, const T& min, const T& max, const T& step)
 	{
 		MamdaniDefuzz<T>* target = (MamdaniDefuzz<T>*) defuzz->getTarget();
-		target->SetMin(min);
-		target->SetMax(max);
-		target->SetStep(step);
+		target->setMin(min);
+		target->setMax(max);
+		target->setStep(step);
 
 		return newBinary(defuzz, l, r);
 	}

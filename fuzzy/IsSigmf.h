@@ -5,6 +5,7 @@
 
 #include "../core/Expression.h"
 #include "../core/UnaryExpression.h"
+#include "../core/NullException.h"
 #include "../fuzzy/Operators.h"
 
 namespace fuzzy {
@@ -24,10 +25,10 @@ namespace fuzzy {
 	};
 
 	template <class T>
-	T IsSigmf<T>::evaluate(const Expression<T>* xExp) const {
-		if (xExp == NULL) throw NullException("Null expression !!!");
-		T x = xExp->evaluate();
-		return 1 / (1 + exp( (-1 * a * (x - c))));
+	T IsSigmf<T>::evaluate(const Expression<T>* _exp) const {
+		if (_exp != NULL)
+			return 1 / (1 + exp( (-1 * a * (_exp->evaluate() - c))));
+		throw NullException("Expression is null!");
 	};
 }
 #endif

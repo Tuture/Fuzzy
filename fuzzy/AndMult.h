@@ -18,7 +18,7 @@ namespace fuzzy
 	template <class T>
 	T AndMult<T>::evaluate(const Expression<T>* _left, const Expression<T>* _right) const
 	{
-		return _left->evaluate()*_right->evaluate();
+		return _left->evaluate() * _right->evaluate();
 	}
 }
 

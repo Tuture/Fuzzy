@@ -15,6 +15,8 @@ namespace core
 		virtual T evaluate() const;
 		virtual T evaluate(const Expression<T>*, const Expression<T>*) const;
 
+		BinaryShadowExpression<T>* getOpe() const { return operatoor; };
+
 	private:
 		BinaryExpression<T>* operatoor;
 		Expression<T>* left;
@@ -22,10 +24,10 @@ namespace core
 	};
 
 	template <class T>
-	T BinaryExpressionModel<T>::evaluate(const Expression<T>* l, const Expression<T>* r) const
+	T BinaryExpressionModel<T>::evaluate(const Expression<T>* _left, const Expression<T>* _right) const
 	{
 		if (operatoor != NULL)
-			return operatoor->evaluate(l, r);
+			return operatoor->evaluate(_left, _right);
 		throw new NullException("Operatoor is null!");
 	}
 

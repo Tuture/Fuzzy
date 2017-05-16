@@ -3,6 +3,7 @@
 
 #include "../core/Expression.h"
 #include "../core/UnaryExpression.h"
+#include "../core/NullException.h"
 #include "../fuzzy/Operators.h"
 
 namespace fuzzy {
@@ -23,12 +24,14 @@ namespace fuzzy {
 
 	template <class T>
 	T IsTrapeze<T>::evaluate(const Expression<T>* value) const {
-		if (value == NULL) throw NullException();
-		T t = value->evaluate();
-		if (t <= min || t >= max) return NULL;
-		if (t < mid1) return (t - min) / (mid1 - min);
-		if (t >= mid1 && t <= mid2) return 1;
-		if (t > mid2) return (max - t) / (max - mid2);
+		if (value != NULL) {
+			T t = value->evaluate();
+			if (t <= min || t >= max) return NULL;
+			if (t < mid1) return (t - min) / (mid1 - min);
+			if (t >= mid1 && t <= mid2) return 1;
+			if (t > mid2) return (max - t) / (max - mid2);
+		}
+		throw NullException("Value is null!");
 	};
 }
 #endif
