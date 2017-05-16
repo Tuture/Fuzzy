@@ -1,4 +1,5 @@
-﻿  stdafx.cpp
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : Le processus ne peut pas accéder au fichier 'c:\users\natiora\desktop\version finale framework\fuzzy\perles_rapen\x64\debug\perles_rapen.pch', car il est en cours d'utilisation par un autre processus.
+  stdafx.cpp
   Perles_Rapen.cpp
   Perles_Rapen.vcxproj -> C:\Users\NATIORA\Desktop\Version finale framework\Fuzzy\x64\Debug\Perles_Rapen.exe
   Perles_Rapen.vcxproj -> C:\Users\NATIORA\Desktop\Version finale framework\Fuzzy\x64\Debug\Perles_Rapen.pdb (Full PDB)

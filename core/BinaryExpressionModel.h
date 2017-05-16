@@ -15,13 +15,18 @@ namespace core
 		virtual T evaluate() const;
 		virtual T evaluate(const Expression<T>*, const Expression<T>*) const;
 
-		BinaryShadowExpression<T>* getOpe() const { return operatoor; };
+		BinaryExpression<T>* getOpe() const;
 
 	private:
 		BinaryExpression<T>* operatoor;
 		Expression<T>* left;
 		Expression<T>* right;
 	};
+
+	template <class T>
+	BinaryExpression<T>* BinaryExpressionModel<T>::getOpe() const {
+		return operatoor;
+	}
 
 	template <class T>
 	T BinaryExpressionModel<T>::evaluate(const Expression<T>* _left, const Expression<T>* _right) const
